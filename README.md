@@ -33,11 +33,17 @@ En la imagen Steve compra un monitor y una lavadora, pero a la hora de acercarse
 ```Bash
 nest new Payment -p npm -g
 ```
+![alt text](image.png)
+
+
 3. En el terminal, acceder a la solución creada y ejecutar el siguiente comando para crear una nueva libreria de clases y adicionarla a la solución actual.
 ```Bash
 cd Payment
 nest g lib domain
+
 ```
+![alt text](image-1.png)
+
 4. En el terminal, ejecutar el siguiente comando para crear un nuevo proyecto de pruebas y adicionarla a la solución actual
 ```Bash
 nest g itf IPaymentStrategy -p domain --flat --no-spec
@@ -47,6 +53,11 @@ nest g cl CashPaymentStrategy -p domain --flat --no-spec
 nest g cl PaymentContext -p domain --flat --no-spec
 nest g cl PaymentService -p domain --flat --no-spec
 ```
+
+
+![alt text](image-2.png)
+
+
 5. Iniciar Visual Studio Code (VS Code) abriendo el folder de la solución como proyecto. En el proyecto Payment, si existe un archivo app.controller.spec.ts proceder a eliminarlo.
 
 6. En el VS Code, primero se necesita implementar la interfaz que servirá de ESTRATEGIA base para las posibles implementaciones de pagos, en el proyecto Notifications.Domain proceder a modificar el archivo ipayment-strategy.interface.ts:
@@ -179,6 +190,10 @@ Test Suites: 1 passed, 1 total
 Tests:       4 passed, 4 total
 ```
 
+![alt text](image-3.png)
+
+
+
 13. Finalmente se puede apreciar que existen tres componentes principales en el patrón ESTARTEGIA:
 a. Estrategia: declarada en una interfac para ser implementada para todos los algoritmos soportado
 b. EstrategiaConcreta: Es la implementa la estrategia para cada algoritmo
@@ -190,12 +205,20 @@ c. Conexto: esta es la clase que mantiene la referencia al objeto Estrategia y l
 ```Bash
 tsuml2 --glob "./libs/**/*.ts" --outMermaidDsl "./class_diagram.md"
 ```
+
+![alt text](image-4.png)
 15. En el VS Code, modificar el archivo class_diagram.md y adicionar \```mermaid al inicio del archivo y al final adicionar \```
+
+![alt text](image-5.png)
+
 
 16. En el terminal, ejecutar el siguiente comando para generar la documentación del proyecto, esta se creara en la carpeta documentation
 ```Bash
 npx @compodoc/compodoc -p tsconfig.json -s
 ```
+![alt text](image-6.png)
+
+![alt text](image-7.png)
 
 
 ### PARTE II: Command Design Pattern
@@ -205,11 +228,19 @@ npx @compodoc/compodoc -p tsconfig.json -s
 ```
 nest new ATM -p npm -g
 ```
+![alt text](image-8.png)
+
+
 3. En el terminal, ejecutar los siguientes comandos para acceder a la carpeta del proyecto y crear una nueva libreria de clases y adicionarla a la aplicación actual.
 ```
 cd ATM
 nest g lib domain
 ```
+
+![alt text](image-9.png)
+
+
+
 4. En el terminal, ejecutar el siguiente comando para crear los archivos necesarios para el laboratorio.
 ```
 nest g itf ICommand -p domain --flat --no-spec
@@ -218,6 +249,11 @@ nest g cl WithdrawCommand -p domain --flat --no-spec
 nest g cl DepositCommand -p domain --flat --no-spec
 nest g cl ATM -p domain --flat --no-spec
 ```
+
+![alt text](image-10.png)
+
+
+
 5. Iniciar Visual Studio Code (VS Code) abriendo el folder de la solución como proyecto. En el proyecto ATM, si existe un archivo app.controller.spec.ts proceder a eliminarlo..
 
 6. En el VS Code, inicialmente se necesita implementar la clase Cuenta que se utilizara en todas los comandos del ATM. Para esto modificar el archivo account.ts en el proyecto ATM.Domain con el siguiente código:
@@ -346,6 +382,11 @@ npm run test:cov
 Test Suites: 1 passed, 1 total
 Tests:       2 passed, 2 total
 ```
+
+![alt text](image-11.png)
+
+
+
 12. Revisemos como funciona el patrón de diseño Comando.
 
 ![image](https://github.com/UPT-FAING-EPIS/SI889_PDS/assets/10199939/50ecff5e-dc02-4b54-980f-8b72546b4129)
@@ -362,12 +403,19 @@ Client: Es la clase que crea y ejecuta el comando.
 ```Bash
 tsuml2 --glob "./libs/**/*.ts" --outMermaidDsl "./class_diagram.md"
 ```
+
+
+![alt text](image-12.png)
+
+
 14. En el VS Code, modificar el archivo class_diagram.md y adicionar \```mermaid al inicio del archivo y al final adicionar \```
 
 15. En el terminal, ejecutar el siguiente comando para generar la documentación del proyecto, esta se creara en la carpeta documentation
 ```Bash
 npx @compodoc/compodoc -p tsconfig.json -s
 ```
+
+![alt text](image-14.png)
 
 ---
 ## Actividades Encargadas
